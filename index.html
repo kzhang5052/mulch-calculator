@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mulch, Soil & Gravel Calculator — How Much Do I Need? | Free Tool</title>
+<meta name="description" content="Free landscape material calculator. Instantly find how many cubic yards or bags of mulch, topsoil, gravel, sand or compost you need. Includes bag count, weight and cost estimate.">
+<link rel="canonical" href="https://REPLACE-WITH-YOUR-DOMAIN.com/">
+<meta property="og:title" content="Mulch, Soil & Gravel Calculator — How Much Do I Need?">
+<meta property="og:description" content="Instantly calculate cubic yards, bags, weight and cost for mulch, soil, gravel and sand. Free, no signup.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<!-- Structured data helps Google show this as a rich result -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How many cubic yards of mulch do I need?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the area in square feet by the depth in feet, then divide by 27. For example, 200 sq ft at 3 inches deep = 200 x 0.25 / 27 = 1.85 cubic yards."}},
+    {"@type": "Question", "name": "How many bags of mulch are in a cubic yard?", "acceptedAnswer": {"@type": "Answer", "text": "A cubic yard equals 27 cubic feet. Standard mulch bags hold 2 cubic feet, so one cubic yard is about 13.5 bags."}},
+    {"@type": "Question", "name": "How much does a yard of mulch weigh?", "acceptedAnswer": {"@type": "Answer", "text": "Dry wood mulch weighs roughly 400-800 lbs per cubic yard. Topsoil is about 2,000-2,700 lbs and gravel is about 2,400-2,900 lbs per cubic yard."}}
+  ]
+}
+</script>
+<style>
+  :root{
+    --green:#2e7d32; --green-dark:#1b5e20; --bg:#f4f7f4; --card:#ffffff;
+    --ink:#1f2a1f; --muted:#5c6b5c; --line:#e2e8e2; --accent:#ff9800;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  header{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:28px 18px;text-align:center}
+  header h1{margin:0;font-size:1.55rem}
+  header p{margin:8px 0 0;opacity:.92;font-size:.98rem}
+  .wrap{max-width:760px;margin:0 auto;padding:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  label{display:block;font-weight:600;margin:14px 0 6px;font-size:.92rem}
+  input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;font-size:1rem;background:#fff}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row > div{flex:1;min-width:130px}
+  .seg{display:flex;gap:8px;margin-top:6px}
+  .seg button{flex:1;padding:10px;border:1px solid var(--line);background:#fff;border-radius:9px;cursor:pointer;font-size:.92rem}
+  .seg button.on{background:var(--green);color:#fff;border-color:var(--green)}
+  .result{background:#eef6ee;border:1px solid #cfe6cf;border-radius:12px;padding:18px;margin-top:18px;display:none}
+  .result.show{display:block}
+  .big{font-size:2rem;font-weight:800;color:var(--green-dark);margin:0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:14px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+  .stat .n{font-size:1.25rem;font-weight:700}
+  .stat .l{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .cta{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:14px;border-radius:10px;margin-top:14px}
+  .cta.sec{background:#fff;color:var(--green-dark);border:1.5px solid var(--green)}
+  .ctas{display:grid;gap:10px;margin-top:14px}
+  .disc{font-size:.78rem;color:var(--muted);margin-top:8px;text-align:center}
+  h2{font-size:1.2rem;margin-top:6px}
+  details{border-top:1px solid var(--line);padding:12px 0}
+  details summary{font-weight:600;cursor:pointer}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px}
+  .share{background:#fff;border:1.5px solid var(--green);color:var(--green-dark);font-weight:600;padding:10px 16px;border-radius:9px;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+  <h1>Mulch, Soil &amp; Gravel Calculator</h1>
+  <p>How much do you need? Get cubic yards, bag count, weight &amp; cost in seconds.</p>
+</header>
+
+<div class="wrap">
+  <div class="card">
+    <label>What are you filling?</label>
+    <select id="material">
+      <option value="mulch" data-w="500" data-bag="2">Wood Mulch</option>
+      <option value="topsoil" data-w="2200" data-bag="0.75">Topsoil</option>
+      <option value="compost" data-w="1100" data-bag="1">Compost</option>
+      <option value="gravel" data-w="2700" data-bag="0.5">Gravel / Stone</option>
+      <option value="sand" data-w="2600" data-bag="0.5">Sand</option>
+    </select>
+
+    <label>Area shape</label>
+    <div class="seg" id="shape">
+      <button data-shape="rect" class="on">Rectangle</button>
+      <button data-shape="circle">Circle</button>
+    </div>
+
+    <div id="rectInputs" class="row">
+      <div><label>Length (ft)</label><input id="len" type="number" min="0" step="any" placeholder="e.g. 20"></div>
+      <div><label>Width (ft)</label><input id="wid" type="number" min="0" step="any" placeholder="e.g. 10"></div>
+    </div>
+    <div id="circleInputs" class="row" style="display:none">
+      <div><label>Diameter (ft)</label><input id="dia" type="number" min="0" step="any" placeholder="e.g. 12"></div>
+    </div>
+
+    <div class="row">
+      <div><label>Depth (inches)</label><input id="depth" type="number" min="0" step="any" placeholder="e.g. 3"></div>
+      <div><label>Price per cubic yard ($, optional)</label><input id="price" type="number" min="0" step="any" placeholder="e.g. 40"></div>
+    </div>
+
+    <div class="result" id="result">
+      <p class="big" id="yards">— cubic yards</p>
+      <div class="grid">
+        <div class="stat"><div class="n" id="cuft">—</div><div class="l">cubic feet</div></div>
+        <div class="stat"><div class="n" id="bags">—</div><div class="l">bags needed</div></div>
+        <div class="stat"><div class="n" id="weight">—</div><div class="l">est. weight</div></div>
+        <div class="stat"><div class="n" id="cost">—</div><div class="l">est. cost</div></div>
+      </div>
+
+      <!-- ============================================================= -->
+      <!-- MONETIZATION: replace the href values with YOUR affiliate URLs -->
+      <!-- See playbook. Buttons change label to match chosen material.  -->
+      <!-- ============================================================= -->
+      <div class="ctas">
+        <a class="cta" id="buyMaterial" href="https://www.amazon.com/s?k=mulch&tag=YOURTAG-20" target="_blank" rel="nofollow sponsored noopener">🛒 Buy mulch by the bag →</a>
+        <a class="cta sec" id="buyTool" href="https://www.amazon.com/s?k=garden+wheelbarrow&tag=YOURTAG-20" target="_blank" rel="nofollow sponsored noopener">Need a wheelbarrow or rake? →</a>
+        <a class="cta sec" id="buyBulk" href="https://www.amazon.com/s?k=landscape+fabric&tag=YOURTAG-20" target="_blank" rel="nofollow sponsored noopener">Landscape fabric to lay first →</a>
+      </div>
+      <p class="disc">As an Amazon Associate this site earns from qualifying purchases. Prices/weights are estimates — confirm with your supplier.</p>
+      <div style="text-align:center;margin-top:12px">
+        <button class="share" id="shareBtn">🔗 Share this result</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>How the math works</h2>
+    <p>Volume = area × depth. We convert your depth from inches to feet, multiply by the area, then divide cubic feet by 27 to get cubic yards (the unit bulk suppliers sell in). Bag count assumes the standard bag size for each material.</p>
+    <details><summary>How many cubic yards of mulch do I need?</summary><p>Multiply area (sq ft) by depth (ft), divide by 27. A 200 sq ft bed at 3 inches deep needs about 1.85 cubic yards.</p></details>
+    <details><summary>How many bags in a cubic yard?</summary><p>A cubic yard is 27 cubic feet. With 2-cu-ft mulch bags that's about 13.5 bags. Bulk delivery is usually cheaper above ~3 yards.</p></details>
+    <details><summary>How much does it weigh?</summary><p>Mulch ≈ 500 lb/yd³, compost ≈ 1,100, topsoil ≈ 2,200, sand/gravel ≈ 2,600–2,700. Check your vehicle's payload before hauling.</p></details>
+  </div>
+
+  <footer>
+    Free calculator. Estimates only. &copy; <span id="yr"></span> YourSiteName.
+    <br>Built to help you buy the right amount the first time.
+  </footer>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+let shape = 'rect';
+const $ = id => document.getElementById(id);
+
+document.querySelectorAll('#shape button').forEach(b=>{
+  b.onclick = () => {
+    document.querySelectorAll('#shape button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    shape = b.dataset.shape;
+    $('rectInputs').style.display = shape==='rect' ? 'flex':'none';
+    $('circleInputs').style.display = shape==='circle' ? 'flex':'none';
+    calc();
+  };
+});
+
+const matLabels = {mulch:'mulch',topsoil:'topsoil',compost:'compost',gravel:'gravel',sand:'sand'};
+
+function calc(){
+  const depthIn = parseFloat($('depth').value);
+  let area = 0;
+  if(shape==='rect'){
+    const l = parseFloat($('len').value), w = parseFloat($('wid').value);
+    if(l>0 && w>0) area = l*w;
+  } else {
+    const d = parseFloat($('dia').value);
+    if(d>0) area = Math.PI * Math.pow(d/2,2);
+  }
+  if(!(area>0) || !(depthIn>0)){ $('result').classList.remove('show'); return; }
+
+  const cuft = area * (depthIn/12);
+  const yards = cuft/27;
+  const opt = $('material').selectedOptions[0];
+  const bagSize = parseFloat(opt.dataset.bag);
+  const wPerYd = parseFloat(opt.dataset.w);
+  const bags = Math.ceil(cuft / bagSize);
+  const lbs = yards * wPerYd;
+  const tons = lbs/2000;
+  const price = parseFloat($('price').value);
+
+  $('yards').textContent = yards.toFixed(2) + ' cubic yards';
+  $('cuft').textContent = cuft.toFixed(1);
+  $('bags').textContent = bags;
+  $('weight').textContent = tons>=1 ? tons.toFixed(2)+' tons' : Math.round(lbs)+' lb';
+  $('cost').textContent = (price>0) ? '$'+(price*yards).toFixed(0) : '—';
+
+  // Update CTA label to match material (keeps your existing affiliate tag/href)
+  const m = matLabels[$('material').value];
+  $('buyMaterial').textContent = '🛒 Buy ' + m + ' by the bag →';
+
+  $('result').classList.add('show');
+}
+
+['material','len','wid','dia','depth','price'].forEach(id=> $(id).addEventListener('input', calc));
+
+$('shareBtn').onclick = async () => {
+  const txt = $('yards').textContent;
+  const data = {title:'Mulch & Gravel Calculator', text:'I need '+txt+' — calculate yours:', url:location.href};
+  if(navigator.share){ try{ await navigator.share(data);}catch(e){} }
+  else { navigator.clipboard.writeText(data.text+' '+location.href); $('shareBtn').textContent='✅ Link copied!'; }
+};
+</script>
+</body>
+</html>
