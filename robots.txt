@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kzhang5052.github.io/mulch-calculator/sitemap.xml
