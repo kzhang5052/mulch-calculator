@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fire Pit & Paver Base Gravel Calculator — How Much Gravel? | Free</title>
+<meta name="description" content="Free gravel calculator for fire pits, paver bases and patios. Enter your area and depth to find how many cubic yards, tons or bags of gravel and paver base you need.">
+<link rel="canonical" href="https://kzhang5052.github.io/mulch-calculator/fire-pit-gravel-calculator.html">
+<meta property="og:title" content="Fire Pit & Paver Base Gravel Calculator">
+<meta property="og:description" content="How much gravel or paver base for a fire pit, patio or path. Free and instant.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How much gravel do I need for a fire pit base?", "acceptedAnswer": {"@type": "Answer", "text": "For a typical 4-foot diameter fire pit with a 4-inch gravel base, you need about 4.2 cubic feet, roughly 0.16 cubic yards or around 0.2 tons of gravel."}},
+    {"@type": "Question", "name": "How deep should a paver base be?", "acceptedAnswer": {"@type": "Answer", "text": "A compacted gravel paver base should be about 4 inches deep for walkways and patios, and 6 or more inches for driveways that carry vehicles."}},
+    {"@type": "Question", "name": "How much does a yard of gravel weigh?", "acceptedAnswer": {"@type": "Answer", "text": "Crushed gravel weighs roughly 2,400 to 2,900 pounds per cubic yard, so plan around 1.3 to 1.5 tons per yard."}}
+  ]
+}
+</script>
+<style>
+  :root{--green:#2e7d32;--green-dark:#1b5e20;--bg:#f4f7f4;--card:#fff;--ink:#1f2a1f;--muted:#5c6b5c;--line:#e2e8e2;--accent:#ff9800;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  header{background:linear-gradient(135deg,#5a4632,#3a2e20);color:#fff;padding:28px 18px;text-align:center}
+  header h1{margin:0;font-size:1.5rem}
+  header p{margin:8px 0 0;opacity:.92;font-size:.96rem}
+  .nav{background:#2a2017;text-align:center;padding:8px}
+  .nav a{color:#ecdfce;text-decoration:none;font-size:.82rem;margin:0 8px;white-space:nowrap}
+  .nav a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  label{display:block;font-weight:600;margin:14px 0 6px;font-size:.92rem}
+  input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;font-size:1rem;background:#fff}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row > div{flex:1;min-width:120px}
+  .seg{display:flex;gap:8px;margin-top:6px}
+  .seg button{flex:1;padding:10px;border:1px solid var(--line);background:#fff;border-radius:9px;cursor:pointer;font-size:.92rem}
+  .seg button.on{background:var(--green);color:#fff;border-color:var(--green)}
+  .result{background:#eef6ee;border:1px solid #cfe6cf;border-radius:12px;padding:18px;margin-top:18px;display:none}
+  .result.show{display:block}
+  .big{font-size:2rem;font-weight:800;color:var(--green-dark);margin:0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:14px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+  .stat .n{font-size:1.25rem;font-weight:700}
+  .stat .l{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .cta{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:14px;border-radius:10px;margin-top:14px}
+  .cta.sec{background:#fff;color:var(--green-dark);border:1.5px solid var(--green)}
+  .ctas{display:grid;gap:10px;margin-top:14px}
+  .disc{font-size:.78rem;color:var(--muted);margin-top:8px;text-align:center}
+  h2{font-size:1.2rem;margin-top:6px}
+  details{border-top:1px solid var(--line);padding:12px 0}
+  details summary{font-weight:600;cursor:pointer}
+  .more a{display:inline-block;margin:6px 8px 0 0;color:var(--green-dark);font-weight:600;text-decoration:none;font-size:.9rem;border:1px solid var(--line);padding:8px 12px;border-radius:8px}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Fire Pit &amp; Paver Base Gravel Calculator</h1>
+  <p>How much gravel or paver base for a fire pit, patio or path.</p>
+</header>
+<nav class="nav">
+  <a href="index.html">Mulch &amp; Gravel</a>
+  <a href="raised-bed-soil-calculator.html">Raised Bed Soil</a>
+  <a href="fire-pit-gravel-calculator.html">Fire Pit / Paver Base</a>
+  <a href="paver-sand-calculator.html">Paver Sand</a>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <label>Material</label>
+    <select id="material">
+      <option value="gravel" data-w="2700" data-bag="0.5">Gravel / Crushed Stone</option>
+      <option value="paverbase" data-w="2900" data-bag="0.5">Paver Base (crushed)</option>
+      <option value="pearock" data-w="2500" data-bag="0.5">Pea Gravel</option>
+    </select>
+
+    <label>Area shape</label>
+    <div class="seg" id="shape">
+      <button data-shape="circle" class="on">Circle (fire pit)</button>
+      <button data-shape="rect">Rectangle (patio)</button>
+    </div>
+
+    <div id="circleInputs" class="row">
+      <div><label>Diameter (ft)</label><input id="dia" type="number" min="0" step="any" placeholder="e.g. 4"></div>
+    </div>
+    <div id="rectInputs" class="row" style="display:none">
+      <div><label>Length (ft)</label><input id="len" type="number" min="0" step="any" placeholder="e.g. 12"></div>
+      <div><label>Width (ft)</label><input id="wid" type="number" min="0" step="any" placeholder="e.g. 10"></div>
+    </div>
+    <div class="row">
+      <div><label>Depth (inches)</label><input id="depth" type="number" min="0" step="any" placeholder="e.g. 4"></div>
+      <div><label>Price per cubic yard ($, optional)</label><input id="price" type="number" min="0" step="any" placeholder="e.g. 40"></div>
+    </div>
+
+    <div class="result" id="result">
+      <p class="big" id="yards">— cubic yards</p>
+      <div class="grid">
+        <div class="stat"><div class="n" id="cuft">—</div><div class="l">cubic feet</div></div>
+        <div class="stat"><div class="n" id="bags">—</div><div class="l">bags needed</div></div>
+        <div class="stat"><div class="n" id="weight">—</div><div class="l">est. weight</div></div>
+        <div class="stat"><div class="n" id="cost">—</div><div class="l">est. cost</div></div>
+      </div>
+      <div class="ctas">
+        <a class="cta" id="buyMaterial" href="https://www.amazon.com/s?k=paver+base+gravel&tag=mulchmath-20" target="_blank" rel="nofollow sponsored noopener">🛒 Buy gravel / paver base →</a>
+        <a class="cta sec" href="https://www.amazon.com/s?k=fire+pit+ring+insert&tag=mulchmath-20" target="_blank" rel="nofollow sponsored noopener">Fire pit rings &amp; inserts →</a>
+        <a class="cta sec" href="https://www.amazon.com/s?k=tamper+plate+compactor&tag=mulchmath-20" target="_blank" rel="nofollow sponsored noopener">Tamper to compact the base →</a>
+      </div>
+      <p class="disc">As an Amazon Associate this site earns from qualifying purchases. Estimates only.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>How much gravel for a fire pit or paver base?</h2>
+    <p>Volume = area × depth ÷ 27 for cubic yards. For a round fire pit, area = π × (diameter ÷ 2)². A compacted base wants about 4 inches for patios and paths, 6+ inches under a driveway. Always compact in layers so it doesn't settle later.</p>
+    <details><summary>How deep should a fire pit gravel base be?</summary><p>3–4 inches of compacted gravel under the pit gives drainage and a stable, level base.</p></details>
+    <details><summary>Gravel vs paver base — what's the difference?</summary><p>Paver base is angular crushed stone with fines that lock together when compacted, ideal under pavers. Loose pea gravel is decorative and doesn't compact.</p></details>
+    <details><summary>How much does it weigh?</summary><p>Gravel runs ~2,700 lb per cubic yard, so order delivery or check your vehicle payload for anything over a half yard.</p></details>
+  </div>
+
+  <div class="card more">
+    <h2>More free calculators</h2>
+    <a href="index.html">Mulch &amp; Gravel</a>
+    <a href="raised-bed-soil-calculator.html">Raised Bed Soil</a>
+    <a href="paver-sand-calculator.html">Paver Sand</a>
+  </div>
+
+  <footer>Free calculator. Estimates only. &copy; <span id="yr"></span> MulchMath.</footer>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+let shape='circle';
+const $ = id => document.getElementById(id);
+document.querySelectorAll('#shape button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#shape button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); shape=b.dataset.shape;
+    $('circleInputs').style.display = shape==='circle'?'flex':'none';
+    $('rectInputs').style.display = shape==='rect'?'flex':'none';
+    calc();
+  };
+});
+function calc(){
+  const depthIn=parseFloat($('depth').value);
+  let area=0;
+  if(shape==='circle'){ const d=parseFloat($('dia').value); if(d>0) area=Math.PI*Math.pow(d/2,2); }
+  else { const l=parseFloat($('len').value), w=parseFloat($('wid').value); if(l>0&&w>0) area=l*w; }
+  if(!(area>0)||!(depthIn>0)){ $('result').classList.remove('show'); return; }
+  const cuft=area*(depthIn/12);
+  const yards=cuft/27;
+  const opt=$('material').selectedOptions[0];
+  const bags=Math.ceil(cuft/parseFloat(opt.dataset.bag));
+  const lbs=yards*parseFloat(opt.dataset.w);
+  const tons=lbs/2000;
+  const price=parseFloat($('price').value);
+  $('yards').textContent=yards.toFixed(2)+' cubic yards';
+  $('cuft').textContent=cuft.toFixed(1);
+  $('bags').textContent=bags;
+  $('weight').textContent= tons>=1 ? tons.toFixed(2)+' tons' : Math.round(lbs)+' lb';
+  $('cost').textContent=(price>0)?'$'+(price*yards).toFixed(0):'—';
+  $('result').classList.add('show');
+}
+['material','dia','len','wid','depth','price'].forEach(id=> $(id).addEventListener('input', calc));
+</script>
+</body>
+</html>

@@ -57,6 +57,10 @@
   details summary{font-weight:600;cursor:pointer}
   footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px}
   .share{background:#fff;border:1.5px solid var(--green);color:var(--green-dark);font-weight:600;padding:10px 16px;border-radius:9px;cursor:pointer}
+  .nav{background:#143d12;text-align:center;padding:8px}
+  .nav a{color:#dff0df;text-decoration:none;font-size:.82rem;margin:0 8px;white-space:nowrap}
+  .nav a:hover{text-decoration:underline}
+  .more a{display:inline-block;margin:6px 8px 0 0;color:var(--green-dark);font-weight:600;text-decoration:none;font-size:.9rem;border:1px solid var(--line);padding:8px 12px;border-radius:8px}
 </style>
 </head>
 <body>
@@ -64,6 +68,12 @@
   <h1>Mulch, Soil &amp; Gravel Calculator</h1>
   <p>How much do you need? Get cubic yards, bag count, weight &amp; cost in seconds.</p>
 </header>
+<nav class="nav">
+  <a href="index.html">Mulch &amp; Gravel</a>
+  <a href="raised-bed-soil-calculator.html">Raised Bed Soil</a>
+  <a href="fire-pit-gravel-calculator.html">Fire Pit / Paver Base</a>
+  <a href="paver-sand-calculator.html">Paver Sand</a>
+</nav>
 
 <div class="wrap">
   <div class="card">
@@ -128,8 +138,15 @@
     <details><summary>How much does it weigh?</summary><p>Mulch ≈ 500 lb/yd³, compost ≈ 1,100, topsoil ≈ 2,200, sand/gravel ≈ 2,600–2,700. Check your vehicle's payload before hauling.</p></details>
   </div>
 
+  <div class="card more">
+    <h2>More free calculators</h2>
+    <a href="raised-bed-soil-calculator.html">Raised Bed Soil</a>
+    <a href="fire-pit-gravel-calculator.html">Fire Pit / Paver Base Gravel</a>
+    <a href="paver-sand-calculator.html">Paver Sand</a>
+  </div>
+
   <footer>
-    Free calculator. Estimates only. &copy; <span id="yr"></span> YourSiteName.
+    Free calculator. Estimates only. &copy; <span id="yr"></span> MulchMath.
     <br>Built to help you buy the right amount the first time.
   </footer>
 </div>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paver Sand Calculator — How Much Sand for Pavers? | Free</title>
+<meta name="description" content="Free paver sand calculator. Enter your patio or walkway area and bedding depth to find how many cubic yards, bags or pounds of leveling and polymeric sand you need.">
+<link rel="canonical" href="https://kzhang5052.github.io/mulch-calculator/paver-sand-calculator.html">
+<meta property="og:title" content="Paver Sand Calculator — How Much Sand for Pavers?">
+<meta property="og:description" content="How much leveling or polymeric sand for a paver patio or walkway. Free, instant.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How much sand do I need for a paver patio?", "acceptedAnswer": {"@type": "Answer", "text": "A 1-inch bedding layer under pavers needs about 1 cubic foot of sand per 12 square feet. A 100 square foot patio needs roughly 8.3 cubic feet, about 0.3 cubic yards."}},
+    {"@type": "Question", "name": "How thick should paver bedding sand be?", "acceptedAnswer": {"@type": "Answer", "text": "Bedding sand under pavers is normally 1 inch thick. Going thicker can cause pavers to sink or shift over time."}},
+    {"@type": "Question", "name": "What is polymeric sand?", "acceptedAnswer": {"@type": "Answer", "text": "Polymeric sand is fine sand mixed with a binder that hardens when wet. It fills the joints between pavers, locks them in place and resists weeds and washout."}}
+  ]
+}
+</script>
+<style>
+  :root{--green:#2e7d32;--green-dark:#1b5e20;--bg:#f4f7f4;--card:#fff;--ink:#1f2a1f;--muted:#5c6b5c;--line:#e2e8e2;--accent:#ff9800;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  header{background:linear-gradient(135deg,#b08948,#7a5e2e);color:#fff;padding:28px 18px;text-align:center}
+  header h1{margin:0;font-size:1.5rem}
+  header p{margin:8px 0 0;opacity:.92;font-size:.96rem}
+  .nav{background:#5e481f;text-align:center;padding:8px}
+  .nav a{color:#f3e7d0;text-decoration:none;font-size:.82rem;margin:0 8px;white-space:nowrap}
+  .nav a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  label{display:block;font-weight:600;margin:14px 0 6px;font-size:.92rem}
+  input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;font-size:1rem;background:#fff}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row > div{flex:1;min-width:120px}
+  .result{background:#eef6ee;border:1px solid #cfe6cf;border-radius:12px;padding:18px;margin-top:18px;display:none}
+  .result.show{display:block}
+  .big{font-size:2rem;font-weight:800;color:var(--green-dark);margin:0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:14px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+  .stat .n{font-size:1.25rem;font-weight:700}
+  .stat .l{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .cta{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:14px;border-radius:10px;margin-top:14px}
+  .cta.sec{background:#fff;color:var(--green-dark);border:1.5px solid var(--green)}
+  .ctas{display:grid;gap:10px;margin-top:14px}
+  .disc{font-size:.78rem;color:var(--muted);margin-top:8px;text-align:center}
+  h2{font-size:1.2rem;margin-top:6px}
+  details{border-top:1px solid var(--line);padding:12px 0}
+  details summary{font-weight:600;cursor:pointer}
+  .more a{display:inline-block;margin:6px 8px 0 0;color:var(--green-dark);font-weight:600;text-decoration:none;font-size:.9rem;border:1px solid var(--line);padding:8px 12px;border-radius:8px}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Paver Sand Calculator</h1>
+  <p>How much leveling or polymeric sand for your paver patio or walkway.</p>
+</header>
+<nav class="nav">
+  <a href="index.html">Mulch &amp; Gravel</a>
+  <a href="raised-bed-soil-calculator.html">Raised Bed Soil</a>
+  <a href="fire-pit-gravel-calculator.html">Fire Pit / Paver Base</a>
+  <a href="paver-sand-calculator.html">Paver Sand</a>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <label>Sand type</label>
+    <select id="material">
+      <option value="leveling" data-w="2600" data-bag="0.5">Leveling / Bedding Sand</option>
+      <option value="polymeric" data-w="2600" data-bag="0.4">Polymeric Sand (joints)</option>
+      <option value="allpurpose" data-w="2600" data-bag="0.5">All-Purpose Sand</option>
+    </select>
+
+    <div class="row">
+      <div><label>Length (ft)</label><input id="len" type="number" min="0" step="any" placeholder="e.g. 10"></div>
+      <div><label>Width (ft)</label><input id="wid" type="number" min="0" step="any" placeholder="e.g. 10"></div>
+    </div>
+    <div class="row">
+      <div><label>Bedding depth (inches)</label><input id="depth" type="number" min="0" step="any" placeholder="e.g. 1"></div>
+      <div><label>Price per cubic yard ($, optional)</label><input id="price" type="number" min="0" step="any" placeholder="e.g. 35"></div>
+    </div>
+
+    <div class="result" id="result">
+      <p class="big" id="yards">— cubic yards</p>
+      <div class="grid">
+        <div class="stat"><div class="n" id="cuft">—</div><div class="l">cubic feet</div></div>
+        <div class="stat"><div class="n" id="bags">—</div><div class="l">bags needed</div></div>
+        <div class="stat"><div class="n" id="weight">—</div><div class="l">est. weight</div></div>
+        <div class="stat"><div class="n" id="cost">—</div><div class="l">est. cost</div></div>
+      </div>
+      <div class="ctas">
+        <a class="cta" id="buyMaterial" href="https://www.amazon.com/s?k=paver+leveling+sand&tag=mulchmath-20" target="_blank" rel="nofollow sponsored noopener">🛒 Buy paver sand →</a>
+        <a class="cta sec" href="https://www.amazon.com/s?k=polymeric+sand&tag=mulchmath-20" target="_blank" rel="nofollow sponsored noopener">Polymeric sand for joints →</a>
+        <a class="cta sec" href="https://www.amazon.com/s?k=paver+edging+spikes&tag=mulchmath-20" target="_blank" rel="nofollow sponsored noopener">Paver edging to hold it in →</a>
+      </div>
+      <p class="disc">As an Amazon Associate this site earns from qualifying purchases. Estimates only.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>How much sand for pavers?</h2>
+    <p>Bedding sand is normally 1 inch deep. Volume = length × width × depth (in feet) ÷ 27 for cubic yards. A 10×10 patio at 1 inch needs about 8.3 cubic feet (~0.3 yards). Buy a little extra for screeding and joint filling.</p>
+    <details><summary>How thick should bedding sand be?</summary><p>One inch. Thicker layers let pavers sink and shift, causing an uneven surface over time.</p></details>
+    <details><summary>Leveling sand vs polymeric sand?</summary><p>Leveling (bedding) sand goes under the pavers. Polymeric sand goes in the joints between them and hardens to resist weeds and washout.</p></details>
+    <details><summary>Do I need gravel under the sand?</summary><p>Yes — a compacted gravel base (see the Paver Base calculator) goes under the sand for proper drainage and support.</p></details>
+  </div>
+
+  <div class="card more">
+    <h2>More free calculators</h2>
+    <a href="index.html">Mulch &amp; Gravel</a>
+    <a href="raised-bed-soil-calculator.html">Raised Bed Soil</a>
+    <a href="fire-pit-gravel-calculator.html">Fire Pit / Paver Base Gravel</a>
+  </div>
+
+  <footer>Free calculator. Estimates only. &copy; <span id="yr"></span> MulchMath.</footer>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const $ = id => document.getElementById(id);
+function calc(){
+  const depthIn=parseFloat($('depth').value);
+  const l=parseFloat($('len').value), w=parseFloat($('wid').value);
+  if(!(l>0)||!(w>0)||!(depthIn>0)){ $('result').classList.remove('show'); return; }
+  const cuft=l*w*(depthIn/12);
+  const yards=cuft/27;
+  const opt=$('material').selectedOptions[0];
+  const bags=Math.ceil(cuft/parseFloat(opt.dataset.bag));
+  const lbs=yards*parseFloat(opt.dataset.w);
+  const tons=lbs/2000;
+  const price=parseFloat($('price').value);
+  $('yards').textContent=yards.toFixed(2)+' cubic yards';
+  $('cuft').textContent=cuft.toFixed(1);
+  $('bags').textContent=bags;
+  $('weight').textContent= tons>=1 ? tons.toFixed(2)+' tons' : Math.round(lbs)+' lb';
+  $('cost').textContent=(price>0)?'$'+(price*yards).toFixed(0):'—';
+  $('result').classList.add('show');
+}
+['material','len','wid','depth','price'].forEach(id=> $(id).addEventListener('input', calc));
+</script>
+</body>
+</html>
